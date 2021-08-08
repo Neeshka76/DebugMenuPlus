@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A87ECC2F-5934-486F-99E7-0C8877B9DDEC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DebugMenuPlus</RootNamespace>
+    <AssemblyName>DebugMenuPlus</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="IngameDebugConsole.Runtime">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\IngameDebugConsole.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Oculus.VR">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Oculus.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="RainyReignGames.Reveal">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\RainyReignGames.Reveal.dll</HintPath>
+    </Reference>
+    <Reference Include="SteamVR">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\SteamVR.dll</HintPath>
+    </Reference>
+    <Reference Include="SteamVR_Actions">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\SteamVR_Actions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Addressables">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\..\..\..\..\Steam\SteamApps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DebugMenuKeyboard.cs" />
+    <Compile Include="DebugMenuPlusLevelModule.cs" />
+    <Compile Include="DebugMenuPlusMenuModule.cs" />
+    <Compile Include="DebugMenuPlusController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(SolutionDir)$(OutDir)$(TargetName).pdb" "D:\Steam\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods\$(ProjectName)\$(TargetName).pdb"
+copy /Y "$(TargetPath)" "D:\Steam\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

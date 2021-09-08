@@ -98,7 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebugMenuKeyboard.cs" />
+    <Compile Include="DebugMenuPlusKeyboard.cs" />
     <Compile Include="DebugMenuPlusLevelModule.cs" />
     <Compile Include="DebugMenuPlusMenuModule.cs" />
     <Compile Include="DebugMenuPlusController.cs" />

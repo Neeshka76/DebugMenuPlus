@@ -54,6 +54,12 @@ namespace DebugMenuPlus
         public float KickWidthAreaValueGetSet { get; set; }
         // Value of the Kick Length
         public float KickLengthValueGetSet { get; set; }
+        // Set remove Imbuements
+        public bool RemoveImbuementsGetSet { get; set; }
+        // Set Imbuements in level
+        public bool ImbuementInLevelGetSet { get; set; }
+        // Number of Imbuements in level
+        public int NbImbuementsInLevelGetSet { get; set; }
 
     }
 

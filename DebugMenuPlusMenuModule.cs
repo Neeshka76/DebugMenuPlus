@@ -20,6 +20,8 @@ namespace DebugMenuPlus
         private Button btnToggleJump;
         private Button btnKickWidthAreaValue;
         private Button btnKickLengthValue;
+        private Button btnRemoveImbuements;
+        private Text txtNbImbuements;
         public override void Init(MenuData menuData, Menu menu)
         {
             base.Init(menuData, menu);
@@ -35,6 +37,8 @@ namespace DebugMenuPlus
             btnToggleJump = menu.GetCustomReference("btn_ToggleJump").GetComponent<Button>();
             btnKickWidthAreaValue = menu.GetCustomReference("btn_KickWidthAreaValue").GetComponent<Button>();
             btnKickLengthValue = menu.GetCustomReference("btn_KickLengthValue").GetComponent<Button>();
+            btnRemoveImbuements = menu.GetCustomReference("btn_RemoveImbuements").GetComponent<Button>();
+            txtNbImbuements = menu.GetCustomReference("txt_NbImbuements").GetComponent<Text>();
 
             // Add an event listener for buttons
             btnCleanBodies.onClick.AddListener(ClickCleanBodies);
@@ -46,10 +50,12 @@ namespace DebugMenuPlus
             btnToggleJump.onClick.AddListener(ClickToggleJump);
             btnKickWidthAreaValue.onClick.AddListener(ClickKickWidthAreaValue);
             btnKickLengthValue.onClick.AddListener(ClickKickLengthValue);
+            btnRemoveImbuements.onClick.AddListener(ClickRemoveImbuements);
             // Initialization of datas
             debugMenuPlusController = GameManager.local.gameObject.AddComponent<DebugMenuPlusController>();
             debugMenuPlusController.data.NbBodiesInLevelGetSet = -1;
             debugMenuPlusController.data.NbItemsInLevelGetSet = -1;
+            debugMenuPlusController.data.NbImbuementsInLevelGetSet = -1;
             debugMenuPlusController.data.NbBodiesLimitValueInLevelGetSet = 30;
             debugMenuPlusController.data.NbItemsLimitValueInLevelGetSet = 100;
             debugMenuPlusController.data.KickEnabledGetSet = true;
@@ -57,7 +63,7 @@ namespace DebugMenuPlus
             debugMenuPlusController.data.KickWidthAreaValueGetSet = 0.2f;
             debugMenuPlusController.data.KickLengthValueGetSet = 2f;
 
-
+            
             debugMenuPlusHook = menu.gameObject.AddComponent<DebugMenuPlusHook>();
             debugMenuPlusHook.menu = this;
             // Update all the Data for left page (text, visibility of buttons etc...)
@@ -84,7 +90,7 @@ namespace DebugMenuPlus
         public void ClickTestInfoObject()
         {
             debugMenuPlusController.data.TestInfoObjectGetSet = true;
-            btnCleanItems.GetComponentInChildren<Text>().text = debugMenuPlusController.data.ItemsInLevelGetSet ? "Processing" : "Error";
+            btnTestInfoObject.GetComponentInChildren<Text>().text = debugMenuPlusController.data.ItemsInLevelGetSet ? "Test" : "Error";
             UpdateDataPageRight1();
         }
         // When selector is click display keyboard to enter the value to limit bodies
@@ -128,6 +134,13 @@ namespace DebugMenuPlus
             UpdateDataPageRight1();
         }
 
+        // When selector is click change display to Error or Clean if no items
+        public void ClickRemoveImbuements()
+        {
+            debugMenuPlusController.data.RemoveImbuementsGetSet = true;
+            btnRemoveImbuements.GetComponentInChildren<Text>().text = debugMenuPlusController.data.ImbuementInLevelGetSet ? "Remove" : "Error";
+            UpdateDataPageRight1();
+        }
         public void UpdateDataPageLeft1()
         {
             // Change the text to Confirm ? there is bodies in level
@@ -166,6 +179,12 @@ namespace DebugMenuPlus
             btnKickWidthAreaValue.GetComponentInChildren<Text>().text = debugMenuPlusController.data.KickWidthAreaValueGetSet.ToString();
             btnKickLengthValue.GetComponentInChildren<Text>().text = debugMenuPlusController.data.KickLengthValueGetSet.ToString();
 
+            // Change the text to Confirm ? there is imbuements in level
+            if (debugMenuPlusController.data.ImbuementInLevelGetSet == true)
+            {
+                btnRemoveImbuements.GetComponentInChildren<Text>().text = "Confirm ?";
+            }
+            txtNbImbuements.text = debugMenuPlusController.data.NbImbuementsInLevelGetSet.ToString();
         }
 
         public void ValueToAssign()

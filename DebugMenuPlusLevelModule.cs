@@ -8,11 +8,6 @@ namespace DebugMenuPlus
     class DebugMenuPlusLevelModule : LevelModule
     {
         private DebugMenuPlusController debugMenuPlusController;
-        private Coroutine CoroutineCountBodies;
-        private Coroutine CoroutineCountItems;
-        private Coroutine CoroutineCleanBodies;
-        private Coroutine CoroutineCleanItems;
-        private Coroutine CoroutineScanItemsInfos;
         float timeToDespawnBodies = 4.0f;
         float timer = 0.0f;
         // When a level is loaded
@@ -31,10 +26,11 @@ namespace DebugMenuPlus
             }
             else
             {
-                // Count Bodies & Items
-                CoroutineCountBodies = GameManager.local.StartCoroutine(CountBodies());
-                CoroutineCountItems = GameManager.local.StartCoroutine(CountItems());
-
+                // Count Bodies & Items & Imbuements
+                GameManager.local.StartCoroutine(CountBodies());
+                GameManager.local.StartCoroutine(CountItems());
+                GameManager.local.StartCoroutine(CountImbuements());
+                // Set a timer before the bodies disappear
                 if(debugMenuPlusController.data.NbBodiesInLevelGetSet >= debugMenuPlusController.data.NbBodiesLimitValueInLevelGetSet)
                 {
                     timer += Time.deltaTime;
@@ -46,18 +42,24 @@ namespace DebugMenuPlus
                 // Clean Items past a certain amount or manually
                 if (debugMenuPlusController.data.CleanBodiesGetSet == true || (debugMenuPlusController.data.NbBodiesInLevelGetSet >= debugMenuPlusController.data.NbBodiesLimitValueInLevelGetSet && timeToDespawnBodies <= timer))
                 {
-                    CoroutineCleanBodies = GameManager.local.StartCoroutine(CleanBodies());
+                    GameManager.local.StartCoroutine(CleanBodies());
                 }
                 // Clear Items past a certain amount or manually
                 if (debugMenuPlusController.data.CleanItemsGetSet == true || debugMenuPlusController.data.NbItemsInLevelGetSet >= debugMenuPlusController.data.NbItemsLimitValueInLevelGetSet)
                 {
-                    CoroutineCleanItems = GameManager.local.StartCoroutine(CleanItems());
+                    GameManager.local.StartCoroutine(CleanItems());
+                }
+                // Clear Items past a certain amount or manually
+                if (debugMenuPlusController.data.RemoveImbuementsGetSet == true)
+                {
+                    GameManager.local.StartCoroutine(RemoveImbuements());
                 }
 
                 if (debugMenuPlusController.data.TestInfoObjectGetSet == true)
                 {
-                    CoroutineScanItemsInfos = GameManager.local.StartCoroutine(ScanItemsInfos());
+                    GameManager.local.StartCoroutine(ScanItemsInfos());
                 }
+
 
                 PlayerControl.local.kickEnabled = debugMenuPlusController.data.KickEnabledGetSet;
                 PlayerControl.local.jumpEnabled = debugMenuPlusController.data.JumpEnabledGetSet;
@@ -146,6 +148,46 @@ namespace DebugMenuPlus
                     }
                 }
                 debugMenuPlusController.data.CleanItemsGetSet = false;
+                yield return null;
+            }
+
+            IEnumerator CountImbuements()
+            {
+                debugMenuPlusController.data.NbImbuementsInLevelGetSet = 0;
+                for (int index = Item.list.Count - 1; index >= 0; --index)
+                {
+                    if (Item.list[index].imbues.Count != 0)
+                    {
+                        foreach (Imbue imbue in Item.list[index].imbues)
+                        {
+                            if (imbue.energy != 0.0f)
+                            {
+                                debugMenuPlusController.data.ImbuementInLevelGetSet = true;
+                                debugMenuPlusController.data.NbImbuementsInLevelGetSet++;
+                            }
+                        }
+                    }
+                }
+                yield return null;
+            }
+
+            IEnumerator RemoveImbuements()
+            {
+                for (int index = Item.list.Count - 1; index >= 0; --index)
+                {
+                    foreach (Imbue imbue in Item.list[index].imbues)
+                    {
+                        if (imbue.energy != 0.0f)
+                        {
+                            imbue.energy = 0.0f;
+                        }
+                        else
+                        {
+                            debugMenuPlusController.data.ImbuementInLevelGetSet = false;
+                        }
+                    }
+                }
+                debugMenuPlusController.data.RemoveImbuementsGetSet = false;
                 yield return null;
             }
 

@@ -61,6 +61,23 @@ namespace DebugMenuPlus
         // Number of Imbuements in level
         public int NbImbuementsInLevelGetSet { get; set; }
 
+        public int indexColorblindnessGetSet { get; set; }
+
+        public int nbMaxColorblindnessGetSet { get; set; }
+        public string colorblindnessNameGetSet { get; set; }
+        public float colorblindnessRedOutRedInValueGetSet { get; set; }
+        public float colorblindnessRedOutGreenInValueGetSet { get; set; }
+        public float colorblindnessRedOutBlueInValueGetSet { get; set; }
+        public float colorblindnessGreenOutRedInValueGetSet { get; set; }
+        public float colorblindnessGreenOutGreenInValueGetSet { get; set; }
+        public float colorblindnessGreenOutBlueInValueGetSet { get; set; }
+        public float colorblindnessBlueOutRedInValueGetSet { get; set; }
+        public float colorblindnessBlueOutGreenInValueGetSet { get; set; }
+        public float colorblindnessBlueOutBlueInValueGetSet { get; set; }
+        public bool changecolorblindnessSliderGetSet { get; set; }
+        public bool changeSlidersGetSet { get; set; }
+        public bool sliderChangedGetSet { get; set; }
+
     }
 
     public class DebugMenuPlusController : MonoBehaviour

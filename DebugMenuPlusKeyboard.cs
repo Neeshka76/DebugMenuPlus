@@ -38,12 +38,12 @@ namespace DebugMenuPlus
         private Text txtInput;
         private DebugMenuPlusController debugMenuPlusController;
 
-        public override IEnumerator OnLoadCoroutine(Level level)
+        public override IEnumerator OnLoadCoroutine()
         {
             debugMenuPlusController = GameManager.local.gameObject.GetComponent<DebugMenuPlusController>();
-            return base.OnLoadCoroutine(level);
+            return base.OnLoadCoroutine();
         }
-        public override void Update(Level level)
+        public override void Update()
         {
             if (debugMenuPlusController == null)
             {

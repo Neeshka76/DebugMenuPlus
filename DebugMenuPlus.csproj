@@ -66,6 +66,27 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.Addressables.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\Managed\Unity.ResourceManager.dll</HintPath>
@@ -116,11 +137,12 @@
     <Compile Include="DebugMenuPlusLevelModule.cs" />
     <Compile Include="DebugMenuPlusMenuModule.cs" />
     <Compile Include="DebugMenuPlusController.cs" />
+    <Compile Include="PostProcessingEffects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(SolutionDir)$(OutDir)$(TargetName).pdb" "D:\Steam\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods\$(ProjectName)\$(TargetName).pdb"
-copy /Y "$(TargetPath)" "D:\Steam\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetName).pdb" "E:\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods\$(ProjectName)\$(TargetName).pdb"
+copy /Y "$(TargetDir)$(TargetName).dll" "E:\SteamLibrary\steamapps\common\Blade &amp; Sorcery\BladeAndSorcery_Data\StreamingAssets\Mods\$(ProjectName)\$(TargetFileName)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

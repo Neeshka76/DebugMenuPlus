@@ -54,6 +54,29 @@ namespace DebugMenuPlus
         public float KickWidthAreaValueGetSet { get; set; }
         // Value of the Kick Length
         public float KickLengthValueGetSet { get; set; }
+        // Set remove Imbuements
+        public bool RemoveImbuementsGetSet { get; set; }
+        // Set Imbuements in level
+        public bool ImbuementInLevelGetSet { get; set; }
+        // Number of Imbuements in level
+        public int NbImbuementsInLevelGetSet { get; set; }
+
+        public int indexColorblindnessGetSet { get; set; }
+
+        public int nbMaxColorblindnessGetSet { get; set; }
+        public string colorblindnessNameGetSet { get; set; }
+        public float colorblindnessRedOutRedInValueGetSet { get; set; }
+        public float colorblindnessRedOutGreenInValueGetSet { get; set; }
+        public float colorblindnessRedOutBlueInValueGetSet { get; set; }
+        public float colorblindnessGreenOutRedInValueGetSet { get; set; }
+        public float colorblindnessGreenOutGreenInValueGetSet { get; set; }
+        public float colorblindnessGreenOutBlueInValueGetSet { get; set; }
+        public float colorblindnessBlueOutRedInValueGetSet { get; set; }
+        public float colorblindnessBlueOutGreenInValueGetSet { get; set; }
+        public float colorblindnessBlueOutBlueInValueGetSet { get; set; }
+        public bool changecolorblindnessSliderGetSet { get; set; }
+        public bool changeSlidersGetSet { get; set; }
+        public bool sliderChangedGetSet { get; set; }
 
     }
 
